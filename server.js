@@ -18,9 +18,9 @@ app.post('/signedrequest', function(req, res) {
     var signedRequest = decode(req.body.signed_request, consumerSecret),
         context = signedRequest.context,
         oauthToken = signedRequest.client.oauthToken,
-        instanceUrl = signedRequest.client.instanceUrl,
+        instanceUrl = signedRequest.client.instanceUrl
 
-        query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
+        /*query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
 
         contactRequest = {
             url: instanceUrl + '/services/data/v29.0/query?q=' + query,
@@ -37,12 +37,16 @@ app.post('/signedrequest', function(req, res) {
         qr.make();
         var imgTag = qr.createImgTag(4);
         res.render('index', {context: context, imgTag: imgTag});
-    });
+    });*/
 
 });
 
-app.set('port', process.env.PORT || 5000);
+app.redirect('https://hc9t06547.itcs.hpecorp.net:4144/?uniqueId=21761270-0062700000ga0su');
+
+/*app.redirect('https://hc9t06547.itcs.hpecorp.net:4144/?uniqueId=21761270-0062700000ga0su');
+
+//app.set('port', process.env.PORT || 5000);
 
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
-});
+});*/
