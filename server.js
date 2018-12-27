@@ -19,10 +19,10 @@ app.post('/signedrequest', function(req, res) {
         context = signedRequest.context,
         oauthToken = signedRequest.client.oauthToken,
         instanceUrl = signedRequest.client.instanceUrl;
-        console.log("Hello World");
+
         res.json("Hello World");
-            
-        /*query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
+
+        query = "SELECT Id, Name, Phone, Owner FROM Account WHERE Id = '" + context.environment.record.Id + "'",
 
         contactRequest = {
             url: instanceUrl + '/services/data/v29.0/query?q=' + query,
@@ -34,21 +34,21 @@ app.post('/signedrequest', function(req, res) {
     request(contactRequest, function(err, response, body) {
         var qr = qrcode.qrcode(4, 'L'),
             contact = JSON.parse(body).records[0],
-            text = 'MECARD:N:' + contact.LastName + ',' + contact.FirstName + ';TEL:' + contact.Phone + ';EMAIL:' + contact.Email + ';;';
+            text = 'MECARD:N:' + contact.Name + ',' + contact.Phone + contact.Owner;
         qr.addData(text);
         qr.make();
         var imgTag = qr.createImgTag(4);
         res.render('index', {context: context, imgTag: imgTag});
-    });*/
+    });
 
 });
 
-app.redirect('https://hc9t06547.itcs.hpecorp.net:4144/?uniqueId=21761270-0062700000ga0su');
+//app.redirect('https://hc9t06547.itcs.hpecorp.net:4144/?uniqueId=21761270-0062700000ga0su');
 
-/*app.redirect('https://hc9t06547.itcs.hpecorp.net:4144/?uniqueId=21761270-0062700000ga0su');
+//app.redirect('https://hc9t06547.itcs.hpecorp.net:4144/?uniqueId=21761270-0062700000ga0su');
 
-//app.set('port', process.env.PORT || 5000);
+app.set('port', process.env.PORT || 5000);
 
 app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
-});*/
+});
