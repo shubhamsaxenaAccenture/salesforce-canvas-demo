@@ -18,7 +18,9 @@ app.post('/signedrequest', function(req, res) {
     var signedRequest = decode(req.body.signed_request, consumerSecret),
         context = signedRequest.context,
         oauthToken = signedRequest.client.oauthToken,
-        instanceUrl = signedRequest.client.instanceUrl
+        instanceUrl = signedRequest.client.instanceUrl;
+
+        res.json("Hello World");
 
         /*query = "SELECT Id, FirstName, LastName, Phone, Email FROM Contact WHERE Id = '" + context.environment.record.Id + "'",
 
